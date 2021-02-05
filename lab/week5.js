@@ -1,6 +1,6 @@
-// 1. signup for an api key https://weatherapi.com
+// 1. signup for an api key https://weatherapi.com: 4498add9fff045f6bb873226212701
 // 2. find the "Chicago" city button using querySelector() and add a click event listener
-// 3. when event occurs (i.e. inside the listener function):
+// 3. when you click a button event occurs (i.e. inside the listener function):
 //    a. find the forecast header (use the selector .forecast-header) and modify its innerHTML to `${location} Forecast`
 //    b. fetch the api response from https://api.weatherapi.com/v1/forecast.json?key=YOUR_KEY&q=LOCATION&days=3
 //    c. extract the json using the .json() function
@@ -29,4 +29,32 @@ function forecastHTML(dailyForecast) {
 // All your code can go inside of this event listener ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
 window.addEventListener('DOMContentLoaded', function() {
   // Your code ...
+
+  //querySelector = 1 element
+  //querySelectorAll = all elements
+  // console.log(button)
+  // 2. find the "Chicago" city button using querySelector() and add a click event listener
+  let button = document.querySelector('#chicago-forecast')
+  button.addEventListener('click', function(event){
+    event.preventDefault()
+    //console.log(event)
+  })
+ 
+//  3. when you click a button event occurs (i.e. inside the listener function):
+//    a. find the forecast header (use the selector .forecast-header) and modify its innerHTML to `${location} Forecast`
+let header = document.querySelector('#forecast-header')
+
+let location = button.innerHTML 
+//console.log()
+
+//header.innerHTML = "Chicago Forecast"
+header.innerHTML = `${location} Forecast`
+
+// b. fetch the api response from https://api.weatherapi.com/v1/forecast.json?key=YOUR_KEY&q=LOCATION&days=3
+let response = fetch(`https://api.weatherapi.com/v1/forecast.json?key=${'4498add9fff045f6bb873226212701'}&q=LOCATION&days=3`)
+console.log(response)
+
+
+
+
 })
